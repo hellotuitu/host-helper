@@ -15,7 +15,7 @@ fi
 exec 2>nul 
 
 echo "正在从https://github.com/racaljk/hosts下载hosts......"
-curl https://raw.githubusercontent.com/racaljk/hosts/master/hosts > temp || { echo "下载失败！";exit; } 
+curl https://coding.net/u/scaffrey/p/hosts/git/raw/master/hosts-files/hosts > temp || { echo "下载失败！";exit; } 
 echo "下载成功"
 
 #比较文件
