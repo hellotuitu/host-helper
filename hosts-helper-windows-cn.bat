@@ -2,7 +2,7 @@
 >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 
 if '%errorlevel%' NEQ '0' (
-    echo ÇëÇó¹ÜÀíÔ±È¨ÏÞ...
+    echo è¯·æ±‚ç®¡ç†å‘˜æƒé™...
     goto UACPrompt
 ) else ( goto gotAdmin )
 
@@ -17,12 +17,12 @@ if '%errorlevel%' NEQ '0' (
     pushd "%CD%"
     CD /D "%~dp0"
 
-rem ¹¹ÔìÏÂÔØ½Å±¾
+rem æž„é€ ä¸‹è½½è„šæœ¬
 
-echo "ÕýÔÚÏÂÔØhosts..."
+echo "æ­£åœ¨ä¸‹è½½hosts..."
 echo Set Post = CreateObject("Msxml2.XMLHTTP") >>download.vbs
 echo Set Shell = CreateObject("Wscript.Shell") >>download.vbs
-echo Post.Open "GET","https://raw.githubusercontent.com/racaljk/hosts/master/hosts",0 >>download.vbs
+echo Post.Open "GET","https://coding.net/u/scaffrey/p/hosts/git/raw/master/hosts-files/hosts",0 >>download.vbs
 echo Post.Send()>>download.vbs
 echo Set aGet = CreateObject("ADODB.Stream") >>download.vbs
 echo aGet.Mode = 3 >>download.vbs
@@ -33,21 +33,21 @@ echo aGet.SaveToFile "temp",2 >>download.vbs
 echo wscript.sleep 1000 >>download.vbs
 cscript download.vbs > nul
 del download.vbs
-echo "ÏÂÔØÍê³É"
+echo "ä¸‹è½½å®Œæˆ"
 
 echo n|comp temp C:\Windows\System32\drivers\etc\hosts >nul 2>&1
 
 if errorlevel 1 (
-    echo "hostsÓÐ¸üÐÂ,ÕýÔÚÌæ»»hosts......"
+    echo "hostsæœ‰æ›´æ–°,æ­£åœ¨æ›¿æ¢hosts......"
     copy temp C:\Windows\System32\drivers\etc\hosts >nul
-    echo "Ìæ»»Íê³É"
+    echo "æ›¿æ¢å®Œæˆ"
     ipconfig /flushdns >nul
-    echo "ÖØÆôÍøÂçÍê³É"
+    echo "é‡å¯ç½‘ç»œå®Œæˆ"
 
 ) else (
-    echo "hostsÎÞ¸üÐÂ"
+    echo "hostsæ— æ›´æ–°"
 )
 del temp
-echo "°´ÈÎÒâ¼üÍË³ö."
+echo "æŒ‰ä»»æ„é”®é€€å‡º."
 
 pause >nul
